@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="container">
+        <p class="text">Old Text</p>
+    </div>
+    <button onclick="createAppend()">Add</button>
+    <button onclick="replace()">Replace</button>
+    <button onclick="remove()">Remove</button>
+
+    <script>
+        function createAppend() {
+            const newElement = document.createElement('p');
+            newElement.textContent = 'New Text';
+            newElement.className = 'text'; // class যোগ করা
+            document.getElementById('container').appendChild(newElement);
+        }
+
+        function replace() {
+            const elements = document.getElementsByClassName('text');
+            if (elements.length > 0) {
+                const newElement = document.createElement('p');
+                newElement.textContent = 'Replaced Text';
+                newElement.className = 'text'; // class যোগ করা
+                elements[0].replaceWith(newElement); // প্রথম ম্যাচ করা এলিমেন্ট প্রতিস্থাপন
+            }
+        }
+
+        function remove() {
+            const elements = document.getElementsByClassName('text');
+            if (elements.length > 0) {
+                elements[0].remove(); // প্রথম ম্যাচ করা এলিমেন্ট মুছে ফেলা
+            }
+        }
+    </script>
+</body>
+</html>
